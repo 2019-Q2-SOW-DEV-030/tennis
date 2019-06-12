@@ -9,25 +9,21 @@ var TennisGame = function () {
 
     var playerOnePoints = constants.STRING_ZERO;
     var playerTwoPoints = constants.STRING_ZERO;
+    var POINTS_TO_SCORE = {
+        1: "15",
+        2: "30"
+    };
 
     this.playerOneScored = function () {
         playerOnePoints++;
 
-        if (playerOnePoints === constants.NUMBER_ONE) {
-            scoreBoard.player1 = constants.STRING_FIFTEEN;
-        } else if (playerOnePoints === constants.NUMBER_TWO) {
-            scoreBoard.player1 = constants.STRING_THIRTY;
-        }
+        scoreBoard.player1 = POINTS_TO_SCORE[playerOnePoints];
     }
 
     this.playerTwoScored = function () {
         playerTwoPoints++;
 
-        if (playerTwoPoints === constants.NUMBER_ONE) {
-            scoreBoard.player2 = constants.STRING_FIFTEEN;
-        } else if (playerTwoPoints === constants.NUMBER_TWO) {
-            scoreBoard.player2 = constants.STRING_THIRTY;
-        }
+        scoreBoard.player2 = POINTS_TO_SCORE[playerTwoPoints];
     }
 
     this.getScore = function () {
