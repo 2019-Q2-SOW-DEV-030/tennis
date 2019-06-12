@@ -14,11 +14,17 @@ var TennisGame = function () {
         2: "30",
         3: "40"
     };
+    var deuceGame = false;
+    var advantagePlayer;
 
     this.playerOneScored = function () {
         playerOnePoints++;
 
         setScore(pointsToScore(playerOnePoints), "player1");
+
+        if (isDeuceGame()) {
+            advantagePlayer = "player1";
+        }
 
         decideWinner();
     }
@@ -36,13 +42,28 @@ var TennisGame = function () {
     }
 
     function decideWinner() {
-        if (playerOnePoints === constants.NUMBER_THREE && playerOnePoints === playerTwoPoints) {
-            scoreBoard.result = "Deuce";
-        } else if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
-            scoreBoard.result = "Player1 wins.";
-        } else if (playerTwoPoints > constants.NUMBER_THREE && playerTwoPoints > playerOnePoints) {
-            scoreBoard.result = "Player2 wins.";
+        if (!deuceGame) {
+            if (isDeucePoints()) {
+                deuceGame = true;
+                scoreBoard.result = "Deuce";
+            } else if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
+                scoreBoard.result = "Player1 wins.";
+            } else if (playerTwoPoints > constants.NUMBER_THREE && playerTwoPoints > playerOnePoints) {
+                scoreBoard.result = "Player2 wins.";
+            }
+        } else {
+            if (advantagePlayer === "player1") {
+                scoreBoard.result = "Player1 gets advantage";
+            }
         }
+    }
+
+    function isDeuceGame() {
+        return deuceGame;
+    }
+
+    function isDeucePoints() {
+        return (playerOnePoints === 3 && playerOnePoints === playerTwoPoints);
     }
 
     function setScore(score, player) {
