@@ -36,9 +36,11 @@ var TennisGame = function () {
     }
 
     function decideWinner() {
-        if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
+        if (playerOnePoints === constants.NUMBER_THREE && playerOnePoints === playerTwoPoints) {
+            scoreBoard.result = "Deuce";
+        } else if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
             scoreBoard.result = "Player1 wins.";
-        }  else if (playerTwoPoints > constants.NUMBER_THREE && playerTwoPoints > playerOnePoints) {
+        } else if (playerTwoPoints > constants.NUMBER_THREE && playerTwoPoints > playerOnePoints) {
             scoreBoard.result = "Player2 wins.";
         }
     }
