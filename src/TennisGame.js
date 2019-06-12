@@ -26,7 +26,9 @@ var TennisGame = function () {
     this.playerTwoScored = function () {
         playerTwoPoints++;
 
-        scoreBoard.player2 = POINTS_TO_SCORE[playerTwoPoints];
+        setScore(pointsToScore(playerTwoPoints), "player2");
+
+        decideWinner();
     }
     
     this.getScore = function () {
@@ -36,6 +38,8 @@ var TennisGame = function () {
     function decideWinner() {
         if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
             scoreBoard.result = "Player1 wins.";
+        }  else if (playerTwoPoints > constants.NUMBER_THREE && playerTwoPoints > playerOnePoints) {
+            scoreBoard.result = "Player2 wins.";
         }
     }
 
