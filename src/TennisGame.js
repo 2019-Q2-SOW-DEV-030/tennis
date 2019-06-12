@@ -9,6 +9,10 @@ var TennisGame = function() {
         scoreBoard.player1 = "15";
     }
 
+    this.playerTwoScored = function() {
+        scoreBoard.player2 = "15";
+    }
+
     this.getScore = function() {
         return scoreBoard;
     }
