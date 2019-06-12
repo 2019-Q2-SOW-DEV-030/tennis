@@ -18,25 +18,21 @@ var TennisGame = function () {
     var advantagePlayer;
 
     this.playerOneScored = function () {
-        playerOnePoints++;
+        increasePlayerOnePoints();
 
         setScore(pointsToScore(playerOnePoints), "player1");
 
-        if (isDeuceGame()) {
-            advantagePlayer = "player1";
-        }
+        setAdvantagePlayer("player1");
 
         decideWinner();
     }
 
     this.playerTwoScored = function () {
-        playerTwoPoints++;
+        increasePlayerTwoPoints()
 
         setScore(pointsToScore(playerTwoPoints), "player2");
 
-        if (isDeuceGame()) {
-            advantagePlayer = "player2";
-        }
+        setAdvantagePlayer("player2");
 
         decideWinner();
     }
@@ -65,6 +61,20 @@ var TennisGame = function () {
             } else if (advantagePlayer === "player2") {
                 scoreBoard.result = "Player2 gets advantage";
             }
+        }
+    }
+
+    function increasePlayerOnePoints() {
+        playerOnePoints++;
+    }
+
+    function increasePlayerTwoPoints() {
+        playerTwoPoints++;
+    }
+
+    function setAdvantagePlayer(player) {
+        if(isDeuceGame()) {
+            advantagePlayer = player;
         }
     }
 

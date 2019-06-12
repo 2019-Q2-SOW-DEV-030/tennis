@@ -113,7 +113,7 @@ describe('TennisGame', function () {
         expect(score.result).toEqual("Player1 gets advantage");
     });
 
-    it('Should player1 gets advantage', function () {
+    it('Should player2 gets advantage', function () {
 
         playerOneScoresPoints(3);
         playerTwoScoresPoints(3);
