@@ -17,7 +17,7 @@ describe('TennisGame', function () {
 
     it('Should player 1 win the first ball', function () {
 
-        tennisGame.playerOneScored();
+        playerOneScoresPoints(1);
 
         var score = tennisGame.getScore();
 
@@ -27,7 +27,7 @@ describe('TennisGame', function () {
 
     it('Should player2 win the first ball', function () {
 
-        tennisGame.playerTwoScored();
+        playerTwoScoresPoints(1);
 
         var score = tennisGame.getScore();
 
@@ -37,8 +37,7 @@ describe('TennisGame', function () {
 
     it('Should player1 score first two balls', function () {
 
-        tennisGame.playerOneScored();
-        tennisGame.playerOneScored();
+        playerOneScoresPoints(2);
 
         var score = tennisGame.getScore();
 
@@ -48,8 +47,7 @@ describe('TennisGame', function () {
 
     it('Should player2 score first two balls', function() {
 
-        tennisGame.playerTwoScored();
-        tennisGame.playerTwoScored();
+        playerTwoScoresPoints(2);
 
         var score = tennisGame.getScore();
 
@@ -59,13 +57,25 @@ describe('TennisGame', function () {
 
     it('Should player1 score first three balls', function() {
 
-        tennisGame.playerOneScored();
-        tennisGame.playerOneScored();
-        tennisGame.playerOneScored();
+        playerOneScoresPoints(3);
 
         var score = tennisGame.getScore();
 
         expect(score.player1).toEqual("40");
         expect(score.player2).toEqual("0");
     });
+
+    function playerOneScoresPoints(times) {
+
+        for(var ball = 0; ball < times; ball++) {
+            tennisGame.playerOneScored();
+        }
+    }
+
+    function playerTwoScoresPoints(times) {
+
+        for(var ball = 0; ball < times; ball++) {
+            tennisGame.playerTwoScored();
+        }
+    }
 })
