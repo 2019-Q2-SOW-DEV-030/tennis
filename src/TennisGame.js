@@ -34,6 +34,10 @@ var TennisGame = function () {
 
         setScore(pointsToScore(playerTwoPoints), "player2");
 
+        if (isDeuceGame()) {
+            advantagePlayer = "player2";
+        }
+
         decideWinner();
     }
     
@@ -54,6 +58,8 @@ var TennisGame = function () {
         } else {
             if (advantagePlayer === "player1") {
                 scoreBoard.result = "Player1 gets advantage";
+            } else if (advantagePlayer === "player2") {
+                scoreBoard.result = "Player2 gets advantage";
             }
         }
     }

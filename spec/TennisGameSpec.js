@@ -113,6 +113,19 @@ describe('TennisGame', function () {
         expect(score.result).toEqual("Player1 gets advantage");
     });
 
+    it('Should player1 gets advantage', function () {
+
+        playerOneScoresPoints(3);
+        playerTwoScoresPoints(3);
+        playerTwoScoresPoints(1);
+
+        var score = tennisGame.getScore();
+
+        expect(score.player1).toEqual("40");
+        expect(score.player2).toEqual("40");
+        expect(score.result).toEqual("Player2 gets advantage");
+    });
+
     function playerOneScoresPoints(times) {
 
         for(var ball = 0; ball < times; ball++) {
