@@ -56,7 +56,7 @@ var TennisGame = function () {
                 scoreBoard.result = "Player2 wins.";
             }
         } else {
-            if (playerOnePoints === 4 && playerOnePoints === playerTwoPoints) {
+            if (playerOnePoints === constants.NUMBER_FOUR && playerOnePoints === playerTwoPoints) {
                 playerOnePoints--;
                 playerTwoPoints--;
                 scoreBoard.result = "Deuce";

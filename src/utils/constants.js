@@ -4,7 +4,8 @@ const constants = {
     STRING_THIRTY: "30",
     NUMBER_ONE: 1,
     NUMBER_TWO: 2,
-    NUMBER_THREE: 3
+    NUMBER_THREE: 3,
+    NUMBER_FOUR: 4
 }
 
 module.exports = constants;
