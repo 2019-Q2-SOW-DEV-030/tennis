@@ -65,6 +65,17 @@ describe('TennisGame', function () {
         expect(score.player2).toEqual("0");
     });
 
+    it('Should player1 wins the game', function() {
+
+        playerOneScoresPoints(4);
+
+        var score = tennisGame.getScore();
+
+        expect(score.player1).toEqual("40");
+        expect(score.player2).toEqual("0");
+        expect(score.result).toEqual("Player1 wins.");
+    });
+
     function playerOneScoresPoints(times) {
 
         for(var ball = 0; ball < times; ball++) {
