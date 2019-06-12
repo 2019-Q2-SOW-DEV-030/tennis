@@ -72,7 +72,11 @@ var TennisGame = function () {
                     setResultAsPlayerOneAdvantage();
                 }
             } else if (advantagePlayer === "player2") {
-                setResultAsPlayerTwoAdvantage();
+                if (playerTwoPoints === 5) {
+                    setResultAsPlayerTwoWinsTheGame();
+                } else {
+                    setResultAsPlayerTwoAdvantage();
+                }
             }
         }
     }
