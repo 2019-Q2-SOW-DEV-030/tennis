@@ -11,7 +11,8 @@ var TennisGame = function () {
     var playerTwoPoints = constants.STRING_ZERO;
     var POINTS_TO_SCORE = {
         1: "15",
-        2: "30"
+        2: "30",
+        3: "40"
     };
 
     this.playerOneScored = function () {
