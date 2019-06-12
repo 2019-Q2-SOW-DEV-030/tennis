@@ -7,15 +7,15 @@ var TennisGame = function () {
         player2: constants.STRING_ZERO
     };
 
-    var playerOnePoints = 0;
+    var playerOnePoints = constants.STRING_ZERO;
 
     this.playerOneScored = function () {
         playerOnePoints++;
 
         if (playerOnePoints === 1) {
-            scoreBoard.player1 = "15";
+            scoreBoard.player1 = constants.STRING_FIFTEEN;
         } else if (playerOnePoints === 2) {
-            scoreBoard.player1 = "30"
+            scoreBoard.player1 = constants.STRING_THIRTY;
         }
     }
 
