@@ -144,6 +144,25 @@ describe('TennisGame', function () {
         expect(score.result).toEqual("Deuce");
     });
 
+    it('Should player1 winss the game from deuce', function() {
+
+        playerOneScoresPoints(3);
+        playerTwoScoresPoints(3);
+        playerOneScoresPoints(1);
+        playerTwoScoresPoints(1);
+        playerTwoScoresPoints(1);
+        playerOneScoresPoints(1);
+        playerOneScoresPoints(1);
+        playerOneScoresPoints(1);
+
+        var score = tennisGame.getScore();
+
+        expect(score.player1).toEqual("40");
+        expect(score.player2).toEqual("40");
+        expect(score.result).toEqual("Player1 wins.");
+    });
+
+
     function playerOneScoresPoints(times) {
 
         for(var ball = 0; ball < times; ball++) {
