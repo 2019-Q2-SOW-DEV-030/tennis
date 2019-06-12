@@ -8,14 +8,14 @@ var TennisGame = function () {
     };
 
     var playerOnePoints = constants.STRING_ZERO;
-    var playerTwoPoints = 0;
+    var playerTwoPoints = constants.STRING_ZERO;
 
     this.playerOneScored = function () {
         playerOnePoints++;
 
-        if (playerOnePoints === 1) {
+        if (playerOnePoints === constants.NUMBER_ONE) {
             scoreBoard.player1 = constants.STRING_FIFTEEN;
-        } else if (playerOnePoints === 2) {
+        } else if (playerOnePoints === constants.NUMBER_TWO) {
             scoreBoard.player1 = constants.STRING_THIRTY;
         }
     }
@@ -23,10 +23,10 @@ var TennisGame = function () {
     this.playerTwoScored = function () {
         playerTwoPoints++;
 
-        if (playerTwoPoints === 1) {
-            scoreBoard.player2 = "15";
-        } else if (playerTwoPoints === 2) {
-            scoreBoard.player2 = "30"
+        if (playerTwoPoints === constants.NUMBER_ONE) {
+            scoreBoard.player2 = constants.STRING_FIFTEEN;
+        } else if (playerTwoPoints === constants.NUMBER_TWO) {
+            scoreBoard.player2 = constants.STRING_THIRTY;
         }
     }
 
