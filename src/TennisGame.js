@@ -34,7 +34,7 @@ var TennisGame = function () {
     }
 
     function decideWinner() {
-        if (playerOnePoints > 3 && playerOnePoints > playerTwoPoints) {
+        if (playerOnePoints > constants.NUMBER_THREE && playerOnePoints > playerTwoPoints) {
             scoreBoard.result = "Player1 wins.";
         }
     }
